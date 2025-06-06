@@ -70,3 +70,4 @@ SELECT * FROM productos WHERE combo = 'pizza/bebida';
 
 -- 20. **Buscar pizzas con un precio mayor a $100:**
 
+SELECT * FROM productos  WHERE producto = 'pizza' AND precio > 100;
