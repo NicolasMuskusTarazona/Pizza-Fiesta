@@ -54,3 +54,41 @@ CREATE TABLE detalles_pedidos (
     INDEX idx_detalles_producto (productos_id)
 ); 
 
+CREATE TABLE ingredientes (
+    ingrediente_id  INT AUTO_INCREMENT PRIMARY KEY,
+    pedido_id       INT NOT NULL,
+    nombre VARCHAR(50) NOT NULL,
+    CONSTRAINT fk_ingredientes
+        FOREIGN KEY (pedido_id)
+        REFERENCES pedidos(pedido_id)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
+)
+
+CREATE TABLE productos_pedidos(
+    productos_pedidos  INT AUTO_INCREMENT PRIMARY KEY,
+    pedido_id INT NOT NULL,
+    productos_id INT NOT NULL,
+    producto VARCHAR(50) NOT NULL,
+    CONSTRAINT fk_productos_pedidos_pedidos
+        FOREIGN KEY (pedido_id)
+        REFERENCES pedidos(pedido_id)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE,
+    CONSTRAINT fk_productos_pedidos_producto
+        FOREIGN KEY (productos_id)
+        REFERENCES productos(productos_id)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
+)
+
+CREATE TABLE ingredientes_adicionales(
+    ingredienteAdicionales_id  INT AUTO_INCREMENT PRIMARY KEY,
+    pedido_id       INT NOT NULL,
+    nombre VARCHAR(50) NOT NULL,
+    CONSTRAINT fk_ingredientes_adicionales
+        FOREIGN KEY (pedido_id)
+        REFERENCES pedidos(pedido_id)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
+)

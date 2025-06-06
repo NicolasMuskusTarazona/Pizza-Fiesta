@@ -78,3 +78,20 @@ INSERT INTO detalles_pedidos (productos_id,pedido_id, precio_unitario, cantidad)
 (6,6, 2, 1),
 (7,7, 10, 5),
 (8,8, 4, 2);
+
+INSERT INTO ingredientes(pedido_id,nombre) VALUES
+(1,'atun'),
+(2,'peperoni'),
+(3,'pollo'),
+(4,'cebollin'),
+(5,'queso'),
+(6,'carne'),
+(7,'ninguno');
+
+INSERT INTO productos_pedidos(pedido_id,productos_id,producto) VALUES
+(1,1,'pizza'),
+(2,2,'bebida');
+
+
+INSERT INTO ingredientes_adicionales(pedido_id,nombre) VALUES
+(1,'chicharron');
